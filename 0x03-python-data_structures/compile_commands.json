@@ -1,0 +1,73 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-pedantic",
+      "-g",
+      "-o",
+      "palindrome",
+      "13-main.c"
+    ],
+    "directory": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures",
+    "file": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures/13-main.c",
+    "output": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures/palindrome"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-pedantic",
+      "-g",
+      "-o",
+      "palindrome",
+      "linked_lists.c"
+    ],
+    "directory": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures",
+    "file": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures/linked_lists.c",
+    "output": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures/palindrome"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-pedantic",
+      "-g",
+      "-o",
+      "palindrome",
+      "13-is_palindrome.c"
+    ],
+    "directory": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures",
+    "file": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures/13-is_palindrome.c",
+    "output": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures/palindrome"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-pedantic",
+      "-std=c99",
+      "-fPIC",
+      "-I/usr/include/python3.8",
+      "-g",
+      "-o",
+      "libPyList.so",
+      "100-print_python_list_info.c"
+    ],
+    "directory": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures",
+    "file": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures/100-print_python_list_info.c",
+    "output": "/home/astro/Projects/alx/alx-higher_level_programming/0x03-python-data_structures/libPyList.so"
+  }
+]
