@@ -5,4 +5,8 @@ def print_matrix_integer(matrix=[[]]):
     for r in matrix:
         if not isinstance(r, list):
             return
-        print('{:d}'.format(' '.join(r)))
+        for c in r:
+            print('{}'.format(c), end="")
+            if c != r[-1]:
+                print(" ", end="")
+        print()
