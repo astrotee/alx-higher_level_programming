@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def divisible_by_2(my_list=[]):
     is_even = []
-    for i, n in enumerate(my_list):
-        is_even[i] = n % 2 == 0
+    for n in my_list:
+        is_even.append(n % 2 == 0)
     return is_even
