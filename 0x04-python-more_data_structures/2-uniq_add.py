@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 def uniq_add(my_list=[]):
-    if not my_list:
+    if my_list is None:
         return
-    result = sum(set(my_list))
-    result = result if result else 0
-    return result
+    return sum(set(my_list)) if len(my_list) else 0
