@@ -1,0 +1,22 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-pedantic",
+      "-std=c99",
+      "-fPIC",
+      "-I/usr/include/python3.8",
+      "-g",
+      "-o",
+      "libPython.so",
+      "103-python.c"
+    ],
+    "directory": "/home/astro/Projects/alx/alx-higher_level_programming/0x04-python-more_data_structures",
+    "file": "/home/astro/Projects/alx/alx-higher_level_programming/0x04-python-more_data_structures/103-python.c",
+    "output": "/home/astro/Projects/alx/alx-higher_level_programming/0x04-python-more_data_structures/libPython.so"
+  }
+]
