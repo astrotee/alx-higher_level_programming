@@ -44,8 +44,8 @@ void print_python_list(PyObject *p)
 
 	for (i = 0; i < size; i++)
 	{
-		item = PyList_GetItem(p, i);
-		printf("Element %zd: %s\n", i, Py_TYPE(item)->tp_name);
+		item = PyList_GET_ITEM(p, i);
+		printf("Element %zd: %s\n", i, (item->ob_type)->tp_name);
 		if (PyBytes_CheckExact(item))
 			print_python_bytes(item);
 	}
