@@ -6,6 +6,26 @@
 Traceback (most recent call last):
 ...
 TypeError: name must be an integer
+>>> bg.integer_validator("age", (1,))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg.integer_validator("age", [1])
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg.integer_validator("age", {1, 2})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
 ...
