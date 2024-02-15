@@ -33,5 +33,9 @@ class Square(Rectangle):
 
         super().update(*nargs, **nkwargs)
 
+    def to_dictionary(self):
+        """dictionary representation of a Square"""
+        return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
+
     def __str__(self):
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
