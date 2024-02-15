@@ -94,6 +94,11 @@ class Rectangle(Base):
         if len(args) == 5:
             self.y = args[4]
 
+    def to_dictionary(self):
+        """dictionary representation of a Rectangle"""
+        return {"id": self.id, "width": self.width,
+                "height": self.height, "x": self.x, "y": self.y}
+
     def __str__(self):
         return f"[Rectangle] ({self.id}) {self.x}/{self.y}" \
                 f" - {self.width}/{self.height}"
