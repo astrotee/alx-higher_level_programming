@@ -75,8 +75,14 @@ class Rectangle(Base):
         if self.height == 0:
             print()
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """update attributes"""
+        if len(args) == 0:
+            self.id = kwargs.get("id", self.id)
+            self.width = kwargs.get("width", self.width)
+            self.height = kwargs.get("height", self.height)
+            self.x = kwargs.get("x", self.x)
+            self.y = kwargs.get("y", self.y)
         if len(args) == 1:
             self.id = args[0]
         if len(args) == 2:
