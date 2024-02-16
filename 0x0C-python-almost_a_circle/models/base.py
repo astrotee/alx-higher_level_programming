@@ -39,3 +39,13 @@ class Base:
 
         with open(f"{cls.__name__}.json", "w") as f:
             f.write(Base.to_json_string(list_dicts))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """create instance with given attributes"""
+        if issubclass(cls, Base):
+            o = cls(1, dictionary.get("height", 0))
+            o.update(**dictionary)
+        else:
+            o = cls(id=dictionary.get("id", None))
+        return o
