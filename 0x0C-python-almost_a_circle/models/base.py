@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Base class"""
 import json
+import os
 
 
 class Base:
@@ -49,3 +50,14 @@ class Base:
         else:
             o = cls(id=dictionary.get("id", None))
         return o
+
+    @classmethod
+    def load_from_file(cls):
+        """create instances form file"""
+        list_objs = []
+        if not os.path.exists(f"{cls.__name__}.json"):
+            return []
+        with open(f"{cls.__name__}.json") as f:
+            for d in Base.from_json_string(f.read()):
+                list_objs.append(cls.create(**d))
+            return list_objs
