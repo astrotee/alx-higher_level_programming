@@ -2,6 +2,8 @@
 """Base class"""
 import json
 import os
+import turtle
+import random
 
 
 class Base:
@@ -95,3 +97,35 @@ class Base:
                     d = dict(zip(keys[1], values))
                 list_objs.append(cls.create(**d))
             return list_objs
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """draw Rectangles and Squares"""
+        tr = turtle.Turtle()
+        tr.speed(1)
+        tr.pensize(3)
+        turtle.colormode(255)
+
+        for rec in list_rectangles:
+            tr.penup()
+            tr.setposition(rec.x, rec.y)
+            tr.pendown()
+            tr.pencolor(random.randint(1, 255), random.randint(1, 255),
+                        random.randint(1, 255))
+            for _ in range(2):
+                tr.right(90)
+                tr.forward(rec.width)
+                tr.right(90)
+                tr.forward(rec.height)
+
+        for sqr in list_squares:
+            tr.penup()
+            tr.setposition(sqr.x, sqr.y)
+            tr.pendown()
+            tr.pencolor(random.randint(1, 255), random.randint(1, 255),
+                        random.randint(1, 255))
+            for _ in range(4):
+                tr.right(90)
+                tr.forward(sqr.size)
+
+        turtle.done()
