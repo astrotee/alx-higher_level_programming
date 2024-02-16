@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import unittest
+import os
 from models.base import Base
 from models.square import Square
 
@@ -123,3 +124,27 @@ class TestRectangle(unittest.TestCase):
 
         b1 = Square.create(id=3, size=5, x=1, y=2)
         self.assertEqual(b1.y, 2)
+
+    def test_save_to_file(self):
+        if os.path.exists('Square.json'):
+            os.remove('Square.json')
+        Square.save_to_file(None)
+        with open("Square.json") as f:
+            self.assertEqual(f.read(), "[]")
+        if os.path.exists('Square.json'):
+            os.remove('Square.json')
+        Square.save_to_file([])
+        with open("Square.json") as f:
+            self.assertEqual(f.read(), "[]")
+        Square.save_to_file([self.b1])
+        self.assertEqual(Square.load_from_file()[0].to_dictionary(),
+                         self.b1.to_dictionary())
+
+    def test_load_from_file(self):
+        if os.path.exists('Square.json'):
+            os.remove('Square.json')
+        list_objs = Square.load_from_file()
+        self.assertEqual(list_objs, [])
+        Square.save_to_file([self.b1])
+        list_objs = Square.load_from_file()
+        self.assertEqual(list_objs[0].to_dictionary(), self.b1.to_dictionary())
