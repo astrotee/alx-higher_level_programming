@@ -2,6 +2,8 @@
 
 import unittest
 import os
+import sys
+import io
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -165,3 +167,37 @@ class TestRectangle(unittest.TestCase):
         Rectangle.save_to_file([self.b1])
         list_objs = Rectangle.load_from_file()
         self.assertEqual(list_objs[0].to_dictionary(), self.b1.to_dictionary())
+
+    def test_display(self):
+        co = io.StringIO()
+        sys.stdout = co
+        Rectangle(2, 3).display()
+        self.assertEqual(co.getvalue(), """##
+##
+##
+""")
+        co = io.StringIO()
+        sys.stdout = co
+        Rectangle(2, 3, 2).display()
+        self.assertEqual(co.getvalue(), """  ##
+  ##
+  ##
+""")
+        co = io.StringIO()
+        sys.stdout = co
+        Rectangle(2, 3, y=2).display()
+        self.assertEqual(co.getvalue(), """
+
+##
+##
+##
+""")
+        co = io.StringIO()
+        sys.stdout = co
+        Rectangle(2, 3, 2, 2).display()
+        self.assertEqual(co.getvalue(), """
+
+  ##
+  ##
+  ##
+""")
