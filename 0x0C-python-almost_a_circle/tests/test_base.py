@@ -21,3 +21,19 @@ class TestBase(unittest.TestCase):
 
         b5 = Base()
         self.assertEqual(b5.id, 4)
+
+    def test_serializer(self):
+        jd = Base.to_json_string(None)
+        self.assertEqual(jd, "[]")
+        jd = Base.to_json_string([])
+        self.assertEqual(jd, "[]")
+        jd = Base.to_json_string([{'id': 45}])
+        self.assertEqual(jd, "[{\"id\": 45}]")
+
+    def test_deserializer(self):
+        jd = Base.from_json_string(None)
+        self.assertEqual(jd, [])
+        jd = Base.from_json_string("[]")
+        self.assertEqual(jd, [])
+        jd = Base.from_json_string("[{\"id\": 45}]")
+        self.assertEqual(jd, [{'id': 45}])
