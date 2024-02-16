@@ -10,7 +10,30 @@ class TestRectangle(unittest.TestCase):
     def setUp(self):
         self.n = Base().id
 
-    def test_id(self):
+    def test_init(self):
+        b1 = Rectangle(2, 3)
+        self.assertEqual(b1.width, 2)
+        self.assertEqual(b1.height, 3)
+
+        b1 = Rectangle(2, 3, 4)
+        self.assertEqual(b1.width, 2)
+        self.assertEqual(b1.height, 3)
+        self.assertEqual(b1.x, 4)
+
+        b1 = Rectangle(2, 3, 4, 5)
+        self.assertEqual(b1.width, 2)
+        self.assertEqual(b1.height, 3)
+        self.assertEqual(b1.x, 4)
+        self.assertEqual(b1.y, 5)
+
+        b1 = Rectangle(2, 3, 4, 5, 1)
+        self.assertEqual(b1.width, 2)
+        self.assertEqual(b1.height, 3)
+        self.assertEqual(b1.x, 4)
+        self.assertEqual(b1.y, 5)
+        self.assertEqual(b1.id, 1)
+
+    def test_auto_id(self):
         b1 = Rectangle(2, 3)
         self.assertEqual(b1.id, self.n + 1)
 
@@ -25,3 +48,18 @@ class TestRectangle(unittest.TestCase):
 
         b5 = Rectangle(2, 3)
         self.assertEqual(b5.id, self.n + 4)
+
+    def test_type_errors(self):
+        self.assertRaises(TypeError, Rectangle)
+        self.assertRaises(TypeError, Rectangle, '1', 1)
+        self.assertRaises(TypeError, Rectangle, 1, '1')
+        self.assertRaises(TypeError, Rectangle, 1, 1, '1')
+        self.assertRaises(TypeError, Rectangle, 1, 1, 1, '1')
+
+    def test_value_errors(self):
+        self.assertRaises(ValueError, Rectangle, 0, 1)
+        self.assertRaises(ValueError, Rectangle, -1, 1)
+        self.assertRaises(ValueError, Rectangle, 1, 0)
+        self.assertRaises(ValueError, Rectangle, 1, -1)
+        self.assertRaises(ValueError, Rectangle, 1, 1, -1)
+        self.assertRaises(ValueError, Rectangle, 1, 1, 1, -1)
