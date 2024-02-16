@@ -61,3 +61,37 @@ class Base:
             for d in Base.from_json_string(f.read()):
                 list_objs.append(cls.create(**d))
             return list_objs
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """writes the CSV string representation of list_objs to a file"""
+        if list_objs is None or not issubclass(cls, Base):
+            list_objs = []
+
+        with open(f"{cls.__name__}.csv", "w") as f:
+            for obj in list_objs:
+                f.write(f"{obj.id},")
+                if "size" in obj.to_dictionary():
+                    f.write(f"{obj.size},")
+                else:
+                    f.write(f"{obj.width},{obj.height},")
+                f.write(f"{obj.x},{obj.y}\n")
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """create instances form CSV file"""
+        keys = [['id', 'size', 'x', 'y'],
+                ['id', 'width', 'height', 'x', 'y']
+                ]
+        list_objs = []
+        if not os.path.exists(f"{cls.__name__}.csv"):
+            return []
+        with open(f"{cls.__name__}.csv") as f:
+            for line in f.readlines():
+                values = list(map(int, line.strip().split(',')))
+                if len(values) == 4:
+                    d = dict(zip(keys[0], values))
+                else:
+                    d = dict(zip(keys[1], values))
+                list_objs.append(cls.create(**d))
+            return list_objs
