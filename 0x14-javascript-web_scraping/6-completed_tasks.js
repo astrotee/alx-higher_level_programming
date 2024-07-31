@@ -6,10 +6,10 @@ request.get({ url: process.argv[2], json: true }, (err, res, body) => {
   const ntasks = {};
   for (const key in body) {
     const task = body[key];
-    if (!Object.hasOwn(ntasks, task.userId)) {
-      ntasks[task.userId] = 0;
-    }
     if (task.completed) {
+      if (!Object.hasOwn(ntasks, task.userId)) {
+        ntasks[task.userId] = 0;
+      }
       ntasks[task.userId]++;
     }
   }
